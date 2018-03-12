@@ -28,20 +28,27 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate (){
-
+//--------------------------------------------------------------------------------------------------------------------------------
+		// Jump Gravity Modifier
+		// Normal Jump, tap button modify gravity for a short jump
+		// Long jump, hold down button for a slightly longer jump
+//--------------------------------------------------------------------------------------------------------------------------------
 		if (rb.velocity.y < 0) {
 			rb.velocity += Vector3.up * Physics.gravity.y * (gravityModifier - 1) * Time.deltaTime;
 		} else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W)) {
 			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 		}
-
+//--------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------
 		MovePlayer ();
-
 	}
 
-
 	public void MovePlayer (){
-
+//--------------------------------------------------------------------------------------------------------------------------------
+		// Inputs
+		// Need to figure out how to just set a button. 
+		// So just say "Jump" or "MoveRight" and have multiple buttons i.e (W) or (Up)
+//--------------------------------------------------------------------------------------------------------------------------------
 		if (Input.GetKey (KeyCode.D)) {
 			transform.Translate (Vector3.right * Time.deltaTime * moveSpeed);
 		}
@@ -55,7 +62,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 }
-
+//--------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------
 //LOCKING MOVEMENT
 //	void OnTriggerEnter (){
 //		if (collider.tag == "Cutsene") {
@@ -71,3 +79,5 @@ public class PlayerController : MonoBehaviour {
 //		} else if (canMove = false) {
 //			moveSpeed = lockedMoveSpeed;
 //		}
+//--------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------
